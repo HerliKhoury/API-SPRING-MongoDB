@@ -54,7 +54,7 @@ public class instanciacao implements CommandLineRunner {
 				theoden
 		);
 		
-		userRepository.saveAll(Arrays.asList(gandalf, thorin, dain));
+		userRepository.saveAll(Arrays.asList(gandalf, thorin, dain, theoden));
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
 		
