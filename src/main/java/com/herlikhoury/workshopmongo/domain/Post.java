@@ -16,18 +16,19 @@ public class Post implements Serializable{
 	private Date date;
 	private String title;
 	private String body;
-	
+	private user author;
 	
 	public Post() {
 		
 	}
 
 
-	public Post(String id, Date date, String title, String body) {
+	public Post(String id, Date date, String title, String body, user author) {
 		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.body = body;
+		this.setAuthor(author);
 	}
 
 
@@ -69,6 +70,15 @@ public class Post implements Serializable{
 	public void setBody(String body) {
 		this.body = body;
 	}
+	
+	public user getAuthor() {
+		return author;
+	}
+
+
+	public void setAuthor(user author) {
+		this.author = author;
+	}
 
 
 	@Override
@@ -88,7 +98,6 @@ public class Post implements Serializable{
 		Post other = (Post) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 
 }
