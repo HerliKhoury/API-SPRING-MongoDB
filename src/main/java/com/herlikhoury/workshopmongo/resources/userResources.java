@@ -51,5 +51,14 @@ public class userResources {
 		return ResponseEntity.created(uri).build();//Cabeçalho com a URL do novo recurso criado
 		
 	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)//Adiciona a parte de busca por id no request como em: http://localhost:8080/users/62422d7a2cde5e2d4e90658d
+	public ResponseEntity<Void> delete(@PathVariable String id){//Pra saber que estamos pegando a id da URL
+	service.delete(id);
+	return ResponseEntity.noContent().build();
+		
+	}
+	
+	
 
 }
