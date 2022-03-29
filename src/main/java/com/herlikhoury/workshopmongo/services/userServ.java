@@ -28,5 +28,9 @@ public class userServ {
 	public user insert(user objeto) {
 		return repo.insert(objeto);
 	}
+	
+	public user fromDTO(user objetoDTO) {
+		return new user(objetoDTO.getId(), objetoDTO.getName(), objetoDTO.getEmail());
+	}
 
 }
