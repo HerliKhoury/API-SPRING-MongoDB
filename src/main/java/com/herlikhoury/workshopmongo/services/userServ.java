@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.herlikhoury.workshopmongo.domain.user;
+import com.herlikhoury.workshopmongo.dto.userDTO;
 import com.herlikhoury.workshopmongo.repository.userRepository;
 import com.herlikhoury.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -29,7 +30,7 @@ public class userServ {
 		return repo.insert(objeto);
 	}
 	
-	public user fromDTO(user objetoDTO) {
+	public user fromDTO(userDTO objetoDTO) {
 		return new user(objetoDTO.getId(), objetoDTO.getName(), objetoDTO.getEmail());
 	}
 
