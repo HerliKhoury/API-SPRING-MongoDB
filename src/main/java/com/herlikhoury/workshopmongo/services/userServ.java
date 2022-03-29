@@ -24,5 +24,9 @@ public class userServ {
 		Optional<user> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
+	
+	public user insert(user objeto) {
+		return repo.insert(objeto);
+	}
 
 }
