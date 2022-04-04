@@ -70,6 +70,7 @@ public class instanciacao implements CommandLineRunner {
 				new AuthorDTO(dain)
 		);
 		
+		post1.getComments().addAll(Arrays.asList(comentario1, comentario2));
 		
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
