@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.herlikhoury.workshopmongo.domain.Post;
 import com.herlikhoury.workshopmongo.domain.user;
+import com.herlikhoury.workshopmongo.dto.AuthorDTO;
 import com.herlikhoury.workshopmongo.repository.PostRepository;
 import com.herlikhoury.workshopmongo.repository.userRepository;
 
@@ -38,12 +39,14 @@ public class instanciacao implements CommandLineRunner {
 		user dain = new user(null, "Dain Iron Foot", "LordBoar@IronHills.com");
 		user theoden = new user(null, "Theoden of Rohan", "WhereWas@Gondor.com");
 		
+		userRepository.saveAll(Arrays.asList(gandalf, thorin, dain, theoden));
+		
 		Post post1 = new Post(
 				null, 
 				sdf.parse("15/06/1933"), 
 				"Gondor calls for aid!", 
 				"The armies of Mordor have surrounded Minas Tirith! Free folks of Middle Earth I summon you!",
-				gandalf
+				new AuthorDTO(gandalf)
 		);
 		
 		Post post2 = new Post(
@@ -51,10 +54,10 @@ public class instanciacao implements CommandLineRunner {
 				sdf.parse("15/06/1933"), 
 				"Gondor can handle her own problems!", 
 				"Where was Gondor when the West Fold fell?",
-				theoden
+				new AuthorDTO(theoden)
 		);
 		
-		userRepository.saveAll(Arrays.asList(gandalf, thorin, dain, theoden));
+		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
 		
