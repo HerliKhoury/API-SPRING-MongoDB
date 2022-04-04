@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.herlikhoury.workshopmongo.domain.Post;
 import com.herlikhoury.workshopmongo.domain.user;
 import com.herlikhoury.workshopmongo.dto.userDTO;
 import com.herlikhoury.workshopmongo.services.userServ;
@@ -68,6 +69,12 @@ public class userResources {
 		
 	}
 	
+	@RequestMapping(value="/{id}/posts", method=RequestMethod.GET)//Adiciona a parte de busca por id no request como em: http://localhost:8080/users/62422d7a2cde5e2d4e90658d
+	public ResponseEntity<List<Post>> findPost(@PathVariable String id){//Pra saber que estamos pegando a id da URL
+	user object = service.findById(id);
+	return ResponseEntity.ok().body(object.getPosts());
+		
+	}
 	
 
 }
