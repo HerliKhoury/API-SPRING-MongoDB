@@ -60,6 +60,12 @@ public class instanciacao implements CommandLineRunner {
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
+		gandalf.getPosts().addAll(Arrays.asList(post1));//Direciona a lista de post ao usuário
+		userRepository.save(gandalf);//Salva as modificações feitas no documento
+		
+		theoden.getPosts().addAll(Arrays.asList(post2));//Direciona a lista de post ao usuário
+		userRepository.save(theoden);//Salva as modificações feitas no documento
+		
 		
 	}
 	
