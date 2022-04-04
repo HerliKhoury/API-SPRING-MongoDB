@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import com.herlikhoury.workshopmongo.domain.Post;
 import com.herlikhoury.workshopmongo.domain.user;
 import com.herlikhoury.workshopmongo.dto.AuthorDTO;
+import com.herlikhoury.workshopmongo.dto.CommentDTO;
 import com.herlikhoury.workshopmongo.repository.PostRepository;
 import com.herlikhoury.workshopmongo.repository.userRepository;
 
@@ -56,6 +57,19 @@ public class instanciacao implements CommandLineRunner {
 				"Where was Gondor when the West Fold fell?",
 				new AuthorDTO(theoden)
 		);
+		
+		CommentDTO comentario1 = new CommentDTO(
+				"Rohan will answer!",
+				sdf.parse("05/07/1933"), 
+				new AuthorDTO(theoden)
+		);
+		
+		CommentDTO comentario2 = new CommentDTO(
+				"Mithrandir always like a storm crow on every fucking conflict Middle Earth passes through...", 
+				sdf.parse("15/06/1933"), 
+				new AuthorDTO(dain)
+		);
+		
 		
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
